@@ -6,13 +6,21 @@
   <component name="CMakeReloadState">
     <option name="reloaded" value="true" />
   </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="ing2_tg_2023_2024_groupe7_equipe9" targetName="ing2_tg_2023_2024_groupe7_equipe9" />
+    </generated>
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="test1" />
+    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="test1">
+      <change beforePath="$PROJECT_DIR$/.idea/ing2-tg-2023-2024-groupe7-equipe9.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ing2-tg-2023-2024-groupe7-equipe9.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +29,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -54,6 +63,18 @@
     &quot;cidr.known.project.marker&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ing2_tg_2023_2024_groupe7_equipe9" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="ing2_tg_2023_2024_groupe7_equipe9" TARGET_NAME="ing2_tg_2023_2024_groupe7_equipe9" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="ing2_tg_2023_2024_groupe7_equipe9" RUN_TARGET_NAME="ing2_tg_2023_2024_groupe7_equipe9">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -63,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700500018573</updated>
       <workItem from="1700500021331" duration="861000" />
-      <workItem from="1700501024144" duration="623000" />
+      <workItem from="1700501024144" duration="4060000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1700501108948</created>
@@ -72,7 +93,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700501108948</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="test1">
+      <created>1700501689758</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1700501689758</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
