@@ -132,7 +132,7 @@ void afficherStations(Station *stations, int nbStations) {
 }
 
 
-int main() {
+/*int main() {
     // Déclaration et initialisation des variables
     Exclusion *contraintes;
     int nbContraintes;
@@ -158,3 +158,4 @@ int main() {
 
     return 0;
 }
+*/

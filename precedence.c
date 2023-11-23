@@ -8,7 +8,7 @@
 #include <stdio.h>
 #define MAX_NODES 100 // Nombre maximal de nœuds dans le graphe
 
-void lireContraintes(char *precedence, int graphe[MAX_NODES][MAX_NODES]) {
+void lireContrainte(char *precedence, int graphe[MAX_NODES][MAX_NODES]) {
     FILE *file = fopen("precedences.txt", "r");
     if (file == NULL) {
         printf("Erreur lors de l'ouverture du fichier.\n");
@@ -39,3 +39,15 @@ void afficherGraphe(int graphe[MAX_NODES][MAX_NODES]) {
         }
     }
 }
+
+
+int main() {
+    int graphe[MAX_NODES][MAX_NODES]; // Matrice d'adjacence pour représenter le graphe
+
+    lireContrainte("contraintes_precedence.txt", graphe);
+
+    afficherGraphe(graphe);
+
+    return 0;
+}
+
