@@ -1,0 +1,120 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+// Définition des types
+typedef struct {
+  int duree;
+  int precedent;
+} Tache;
+
+// Fonction pour lire les données depuis un fichier texte
+Tache *lire_donnees(char *nom_fichier) {
+  // Ouverture du fichier
+  FILE *fichier = fopen(nom_fichier, "r");
+  if (fichier == NULL) {
+    printf("Erreur lors de l'ouverture du fichier.\n");
+    exit(1);
+  }
+
+  // Allocation de la mémoire pour le tableau de tâches
+  int n;
+  fscanf(fichier, "%d", &n);
+  Tache *taches = malloc(n * sizeof(Tache));
+  if (taches == NULL) {
+    printf("Erreur lors de l'allocation de la mémoire.\n");
+    exit(1);
+  }
+
+  // Lecture des données
+  for (int i = 0; i < n; i++) {
+    fscanf(fichier, "%d %d", &taches[i].duree, &taches[i].precedent);
+  }
+
+  // Fermeture du fichier
+  fclose(fichier);
+
+  return taches;
+}
+
+// Fonction pour calculer l'ordonnance de pert
+void ordonnance_pert(Tache *taches, int n) {
+  // Initialisation des variables
+  int i, j, k;
+  int temps_planification[n];
+  int temps_critique[n];
+  int temps_debut[n];
+  int temps_fin[n];
+
+  // Calcul du temps de début
+  for (i = 0; i < n; i++) {
+    temps_debut[i] = 0;
+  }
+
+  // Calcul du temps de fin
+  for (i = 0; i < n; i++) {
+    for (j = 0; j < i; j++) {
+      if (taches[i].duree > taches[j].duree + temps_debut[j]) {
+        temps_debut[i] = taches[j].duree + temps_debut[j];
+      }
+    }
+    temps_fin[i] = temps_debut[i] + taches[i].duree;
+  }
+
+  // Calcul du temps de planification
+  for (i = 0; i < n; i++) {
+    temps_planification[i] = temps_fin[i] - temps_debut[i];
+  }
+
+  // Calcul du temps critique
+  temps_critique[0] = temps_planification[0];
+  for (i = 1; i < n; i++) {
+    temps_critique[i] = temps_planification[i];
+    for (j = 0; j < i; j++) {
+      if (taches[i].precedent == taches[j].id && temps_critique[i] > temps_critique[j] + temps_planification[i]) {
+        temps_critique[i] = temps_critique[j] + temps_planification[i];
+      }
+    }
+  }
+
+  // Affichage des résultats
+  printf("Temps de début\n");
+  for (i = 0; i < n; i++) {
+    printf("%d\n", temps_debut[i]);
+  }
+  printf("\nTemps de fin\n");
+  for (i = 0; i < n; i++) {
+    printf("%d\n", temps_fin[i]);
+  }
+  printf("\nTemps de planification\n");
+  for (i = 0; i < n; i++) {
+    printf("%d\n", temps_planification[i]);
+  }
+  printf("\nTemps critique\n");
+  for (i = 0; i < n; i++) {
+    printf("%d\n", temps_critique[i]);
+  }
+}
+
+// Fonction principale
+int main() {
+  // Déclaration des variables
+  char nom_fichier[256];
+  Tache *taches;
+  int n;
+
+  // Saisie du nom du fichier
+  printf("Nom du fichier : ");
+  scanf("%s", nom_fichier);
+
+  // Lecture des données
+  taches = lire_donnees(nom_fichier);
+  n = sizeof(taches) / sizeof(Tache);
+
+  // Calcul de l'ordonnance de pert
+  ordonnance_pert(taches, n);
+
+  // Libération de la mémoire
+  free(taches);
+
+  return 0;
+}
