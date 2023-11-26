@@ -47,17 +47,14 @@ int main() {
 }
 
 void lireContraintes() {
-    // Code pour lire les contraintes depuis le fichier
     printf("Fonction non implémentée.\n");
 }
 
 void repartirOperations() {
-    // Code pour répartir les opérations par station
     printf("Fonction non implémentée.\n");
 }
 
 void afficherResultat() {
-    // Code pour afficher le résultat
     printf("Fonction non implémentée.\n");
 }
 
