@@ -4,21 +4,20 @@
 
 #ifndef ING2_TG_2023_2024_GROUPE7_EQUIPE9_EXCLUSIONS_H
 #define ING2_TG_2023_2024_GROUPE7_EQUIPE9_EXCLUSIONS_H
-typedef struct {
-    int op1;
-    int op2;
-} Exclusion;
+// Structure pour représenter une paire d'opérations
+struct ExclusionPair {
+    int operation1;
+    int operation2;
+};
 
-// Structure pour représenter une station
-typedef struct {
-    int *operations;
-    int nbOperations;
-} Station;
-
-void lireContraintes(char *nomFichier, Exclusion **contraintes, int *nbContraintes);
-
-void obtenirStations(Exclusion *contraintes, int nbContraintes, Station **stations, int *nbStations);
-
-void afficherStations(Station *stations, int nbStations);
+// Structure pour représenter une opération avec son nombre de paires associées
+struct Operation {
+    int operation;
+    int numPairs;
+};
+int compareOperations(const void *a, const void *b);
+void lirecontrainte(struct ExclusionPair *exclusions, int *numExclusions);
+int calculateMinStations(struct ExclusionPair *exclusions, int numExclusions, int *stations, int *numOperationsInStation);
+void printOperationsInStations(int *stations, int numStations, int *numOperationsInStation);
 
 #endif //ING2_TG_2023_2024_GROUPE7_EQUIPE9_EXCLUSIONS_H

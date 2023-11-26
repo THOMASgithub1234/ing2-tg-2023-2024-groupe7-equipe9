@@ -6,156 +6,127 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Fonction pour lire les contraintes d'exclusion à partir du fichier
-void lireContraintes(char *nomFichier, Exclusion **contraintes, int *nbContraintes) {
-    FILE *fichier = fopen(nomFichier, "r");
-    if (fichier == NULL) {
+#define MAX_OPERATIONS 35
+
+// Fonction de comparaison pour le tri décroissant des opérations en fonction du nombre de paires
+int compareOperations(const void *a, const void *b) {
+    return ((struct Operation *)b)->numPairs - ((struct Operation *)a)->numPairs;
+}
+
+// Fonction pour lire les contraintes d'exclusion à partir d'un fichier
+void lirecontrainte(struct ExclusionPair *exclusions, int *numExclusions) {
+    FILE *file = fopen("exclusions.txt", "r");
+    if (file == NULL) {
         perror("Erreur lors de l'ouverture du fichier");
         exit(EXIT_FAILURE);
     }
 
-    // Comptage du nombre de contraintes dans le fichier
-    int nbLignes = 0;
-    char c;
-    while ((c = fgetc(fichier)) != EOF) {
-        if (c == '\n') {
-            nbLignes++;
-        }
-    }
-    rewind(fichier);
+    *numExclusions = 0;
 
-    // Allocation de mémoire pour stocker les contraintes
-    *contraintes = malloc(nbLignes * sizeof(Exclusion));
-    if (*contraintes == NULL) {
-        perror("Erreur lors de l'allocation de mémoire");
-        exit(EXIT_FAILURE);
+    while (fscanf(file, "%d %d", &exclusions[*numExclusions].operation1, &exclusions[*numExclusions].operation2) == 2) {
+        (*numExclusions)++;
     }
 
-    // Lecture des contraintes à partir du fichier
-    for (int i = 0; i < nbLignes; i++) {
-        fscanf(fichier, "%d %d", &((*contraintes)[i].op1), &((*contraintes)[i].op2));
-    }
-
-    *nbContraintes = nbLignes;
-
-    fclose(fichier);
+    fclose(file);
 }
 
-// Fonction pour obtenir le nombre de stations nécessaires et les opérations par station
-void obtenirStations(Exclusion *contraintes, int nbContraintes, Station **stations, int *nbStations) {
-    *nbStations = 0;
+// Fonction pour déterminer le nombre minimal de stations nécessaires
+int calculateMinStations(struct ExclusionPair *exclusions, int numExclusions, int *stations, int *numOperationsInStation) {
+    int numStations = 0;
 
-    // Parcours des contraintes pour identifier les opérations uniques
-    for (int i = 0; i < nbContraintes; i++) {
-        int station1 = -1;
-        int station2 = -1;
+    // Initialiser le tableau des stations
+    for (int i = 0; i < MAX_OPERATIONS; ++i) {
+        stations[i] = -1; // -1 signifie que l'opération n'est pas attribuée à une station
+    }
 
-        // Vérification de l'opération 1
-        for (int j = 0; j < *nbStations; j++) {
-            for (int k = 0; k < (*stations)[j].nbOperations; k++) {
-                if ((*stations)[j].operations[k] == contraintes[i].op1) {
-                    station1 = j;
+    // Créer un tableau d'opérations avec le nombre de paires associées
+    struct Operation operations[MAX_OPERATIONS];
+    for (int i = 0; i < MAX_OPERATIONS; ++i) {
+        operations[i].operation = i + 1;
+        operations[i].numPairs = 0;
+    }
+
+    // Compter le nombre de paires associées à chaque opération
+    for (int i = 0; i < numExclusions; ++i) {
+        operations[exclusions[i].operation1 - 1].numPairs++;
+        operations[exclusions[i].operation2 - 1].numPairs++;
+    }
+
+    // Trier les opérations en fonction du nombre de paires (ordre décroissant)
+    qsort(operations, MAX_OPERATIONS, sizeof(struct Operation), compareOperations);
+
+    // Parcourir les opérations triées
+    for (int i = 0; i < MAX_OPERATIONS; ++i) {
+        int currentOperation = operations[i].operation;
+
+        // Trouver la première station disponible sans créer de paire
+        for (int j = 1; j <= numStations; ++j) {
+            int isPair = 0;
+
+            // Vérifier si l'ajout de l'opération crée une paire
+            for (int k = 0; k < numExclusions; ++k) {
+                if ((stations[exclusions[k].operation1 - 1] == j && exclusions[k].operation2 == currentOperation) ||
+                    (stations[exclusions[k].operation2 - 1] == j && exclusions[k].operation1 == currentOperation)) {
+                    isPair = 1;
                     break;
                 }
             }
-            if (station1 != -1) {
+
+            // Si l'opération n'est pas une paire, l'attribuer à la station
+            if (!isPair) {
+                stations[currentOperation - 1] = j;
+                numOperationsInStation[j]++;
                 break;
             }
         }
 
-        // Vérification de l'opération 2
-        for (int j = 0; j < *nbStations; j++) {
-            for (int k = 0; k < (*stations)[j].nbOperations; k++) {
-                if ((*stations)[j].operations[k] == contraintes[i].op2) {
-                    station2 = j;
-                    break;
-                }
-            }
-            if (station2 != -1) {
-                break;
-            }
-        }
-
-        if (station1 == -1 && station2 == -1) {
-            // Nouvelle station
-            *stations = realloc(*stations, (*nbStations + 1) * sizeof(Station));
-            (*stations)[*nbStations].operations = malloc(2 * sizeof(int));
-            (*stations)[*nbStations].operations[0] = contraintes[i].op1;
-            (*stations)[*nbStations].operations[1] = contraintes[i].op2;
-            (*stations)[*nbStations].nbOperations = 2;
-            (*nbStations)++;
-        } else if (station1 != -1 && station2 == -1) {
-            // Ajout de l'opération 2 à la station existante contenant l'opération 1
-            (*stations)[station1].operations = realloc((*stations)[station1].operations,
-                                                       ((*stations)[station1].nbOperations + 1) * sizeof(int));
-            (*stations)[station1].operations[(*stations)[station1].nbOperations] = contraintes[i].op2;
-            (*stations)[station1].nbOperations++;
-        } else if (station1 == -1 && station2 != -1) {
-            // Ajout de l'opération 1 à la station existante contenant l'opération 2
-            (*stations)[station2].operations = realloc((*stations)[station2].operations,
-                                                       ((*stations)[station2].nbOperations + 1) * sizeof(int));
-            (*stations)[station2].operations[(*stations)[station2].nbOperations] = contraintes[i].op1;
-            (*stations)[station2].nbOperations++;
-        } else {
-            // Les deux opérations existent déjà dans des stations distinctes, fusionner les stations
-            if (station1 != station2) {
-                // Ajouter les opérations de la station 2 à la station 1
-                int nouvelleTaille = (*stations)[station1].nbOperations + (*stations)[station2].nbOperations;
-                (*stations)[station1].operations =
-                        realloc((*stations)[station1].operations, nouvelleTaille * sizeof(int));
-                for (int j = 0; j < (*stations)[station2].nbOperations; j++) {
-                    (*stations)[station1].operations[(*stations)[station1].nbOperations + j] =
-                            (*stations)[station2].operations[j];
-                }
-                (*stations)[station1].nbOperations = nouvelleTaille;
-
-                // Supprimer la station 2
-                for (int j = station2; j < *nbStations - 1; j++) {
-                    (*stations)[j] = (*stations)[j + 1];
-                }
-                (*nbStations)--;
-            }
+        // Si aucune station n'est disponible sans créer de paire, ajouter une nouvelle station
+        if (stations[currentOperation - 1] == -1) {
+            numStations++;
+            stations[currentOperation - 1] = numStations;
+            numOperationsInStation[numStations]++;
         }
     }
+
+    return numStations;
 }
 
+// Fonction pour afficher les opérations réalisées par chaque station
+void printOperationsInStations(int *stations, int numStations, int *numOperationsInStation) {
+    printf("Repartition des operations par station :\n");
 
-// Fonction pour afficher les stations et les opérations par station
-void afficherStations(Station *stations, int nbStations) {
-    for (int i = 0; i < nbStations; i++) {
+    for (int i = 0; i < numStations; ++i) {
         printf("Station %d : ", i + 1);
-        for (int j = 0; j < stations[i].nbOperations; j++) {
-            printf("op%d ", stations[i].operations[j] + 1); // Ajouter +1 ici pour afficher les indices corrects
+
+        for (int j = 0; j < MAX_OPERATIONS; ++j) {
+            if (stations[j] == i + 1) {
+                printf("op%d ", j + 1);
+            }
         }
+
         printf("\n");
     }
+
+
+
 }
 
+int main() {
+    struct ExclusionPair exclusions[MAX_OPERATIONS * (MAX_OPERATIONS - 1) / 2];
+    int numExclusions;
 
-/*int main() {
-    // Déclaration et initialisation des variables
-    Exclusion *contraintes;
-    int nbContraintes;
+    // Lecture des contraintes d'exclusion à partir du fichier
+    lirecontrainte(exclusions, &numExclusions);
 
-    // Lecture des contraintes à partir du fichier
-    lireContraintes("exclusions.txt", &contraintes, &nbContraintes);
+    int stations[MAX_OPERATIONS];
+    int numOperationsInStation[MAX_OPERATIONS] = {0};
 
-    // Obtention du nombre de stations nécessaires et des opérations par station
-    Station *stations = NULL;
-    int nbStations;
-    obtenirStations(contraintes, nbContraintes, &stations, &nbStations);
+    // Calculer le nombre minimal de stations nécessaires et les opérations réalisées par chaque station
+    int numStations = calculateMinStations(exclusions, numExclusions, stations, numOperationsInStation);
 
-    // Affichage du résultat
-    printf("Nombre de stations necessaires : %d\n", nbStations);
-    afficherStations(stations, nbStations);
-
-    // Libération de la mémoire allouée
-    free(contraintes);
-    for (int i = 0; i < nbStations; i++) {
-        free(stations[i].operations);
-    }
-    free(stations);
+    // Afficher le résultat
+    printf("Nombre minimal de stations necessaires : %d\n", numStations);
+    printOperationsInStations(stations, numStations, numOperationsInStation);
 
     return 0;
 }
-*/

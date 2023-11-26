@@ -17,9 +17,12 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="code du graphe de precedence">
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/precedence.h" beforeDir="false" afterPath="$PROJECT_DIR$/precedence.h" afterDir="false" />
+    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="contrainte exclusion">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exclusions.c" beforeDir="false" afterPath="$PROJECT_DIR$/exclusions.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exclusions.h" beforeDir="false" afterPath="$PROJECT_DIR$/exclusions.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/precedence.c" beforeDir="false" afterPath="$PROJECT_DIR$/precedence.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1700500018573</updated>
       <workItem from="1700500021331" duration="861000" />
-      <workItem from="1700501024144" duration="623000" />
+      <workItem from="1700501024144" duration="4060000" />
     </task>
     <task id="LOCAL-00001" summary="test1">
       <created>1700501108948</created>
@@ -93,21 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700501108948</updated>
     </task>
-    <task id="LOCAL-00002" summary="ouverture du fichier precedences.txt">
-      <created>1700756329547</created>
+    <task id="LOCAL-00002" summary="test1">
+      <created>1700501689758</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1700756329547</updated>
+      <updated>1700501689758</updated>
     </task>
-    <task id="LOCAL-00003" summary="code du graphe de precedence">
-      <created>1700756475867</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1700756475867</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -126,8 +122,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test1" />
-    <MESSAGE value="ouverture du fichier precedences.txt" />
-    <MESSAGE value="code du graphe de precedence" />
-    <option name="LAST_COMMIT_MESSAGE" value="code du graphe de precedence" />
+    <option name="LAST_COMMIT_MESSAGE" value="test1" />
   </component>
 </project>

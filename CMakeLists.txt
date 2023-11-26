@@ -6,4 +6,4 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(ing2_tg_2023_2024_groupe7_equipe9
-        main.c precedence.c precedence.h exclusions.c exclusions.h operation.c operation.h)
+        main.c maintest.c precedence.h exclusions.c exclusions.h operation.c operation.h exclusionstest.h)

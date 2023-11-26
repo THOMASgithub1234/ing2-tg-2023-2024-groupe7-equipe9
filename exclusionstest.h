@@ -1,5 +1,5 @@
 ///Sachant que le fichier était de base main.c et exclusion.h , il faut changer les if et tout car ici en blablatest
-
+/*
 #ifndef EXCLUSIONS_H
 #define EXCLUSIONS_H
 
@@ -130,3 +130,4 @@ void afficherStations(Station *stations, int nbStations) {
 }
 
 #endif // EXCLUSIONS_H
+*/

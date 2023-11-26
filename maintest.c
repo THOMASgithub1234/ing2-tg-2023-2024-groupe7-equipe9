@@ -1,5 +1,5 @@
 #include "exclusionstest.h"
-
+/*
 int main() {
     // Déclaration et initialisation des variables
     Exclusion *contraintes;
@@ -27,3 +27,4 @@ int main() {
 
     return 0;
 }
+*/
