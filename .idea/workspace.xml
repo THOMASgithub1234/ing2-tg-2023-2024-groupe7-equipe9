@@ -17,13 +17,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="code du graphe de precedence">
+    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="amelioration precedence">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exclusions.c" beforeDir="false" afterPath="$PROJECT_DIR$/exclusions.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/precedence.c" beforeDir="false" afterPath="$PROJECT_DIR$/precedence.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/precedence.h" beforeDir="false" afterPath="$PROJECT_DIR$/precedence.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1700756475867</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="amelioration precedence">
+      <created>1701245072186</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1701245072186</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +134,7 @@
     <MESSAGE value="test1" />
     <MESSAGE value="ouverture du fichier precedences.txt" />
     <MESSAGE value="code du graphe de precedence" />
-    <option name="LAST_COMMIT_MESSAGE" value="code du graphe de precedence" />
+    <MESSAGE value="amelioration precedence" />
+    <option name="LAST_COMMIT_MESSAGE" value="amelioration precedence" />
   </component>
 </project>
