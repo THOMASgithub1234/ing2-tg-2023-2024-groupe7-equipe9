@@ -7,10 +7,14 @@
 
 
 
+#define MAX_TASKS 36 // Nombre maximal de tâches
 
-#define MAX_NODES 100
+struct Task {
+    int id;
+    float duration;
+    float earlyStart;
+};
 
-void lireContrainte(char *precedence, int graphe[MAX_NODES][MAX_NODES]);
-void afficherGraphe(int graphe[MAX_NODES][MAX_NODES]);
+float pert(int graph[MAX_TASKS][MAX_TASKS], struct Task tasks[MAX_TASKS], int num_tasks);
+#endif
 
-#endif //ING2_TG_2023_2024_GROUPE7_EQUIPE9_PRECEDENCE_H

@@ -111,7 +111,7 @@ void printOperationsInStations(int *stations, int numStations, int *numOperation
 
 }
 
-int main() {
+/*int main() {
     struct ExclusionPair exclusions[MAX_OPERATIONS * (MAX_OPERATIONS - 1) / 2];
     int numExclusions;
 
@@ -130,3 +130,4 @@ int main() {
 
     return 0;
 }
+*/
