@@ -17,8 +17,8 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="amelioration precedence">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="ajout de la durée">
+      <change beforePath="$PROJECT_DIR$/precedence.c" beforeDir="false" afterPath="$PROJECT_DIR$/precedence.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +113,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701245072186</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ajout de la durée">
+      <created>1701252273200</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701252273200</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,6 +142,7 @@
     <MESSAGE value="ouverture du fichier precedences.txt" />
     <MESSAGE value="code du graphe de precedence" />
     <MESSAGE value="amelioration precedence" />
-    <option name="LAST_COMMIT_MESSAGE" value="amelioration precedence" />
+    <MESSAGE value="ajout de la durée" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajout de la durée" />
   </component>
 </project>

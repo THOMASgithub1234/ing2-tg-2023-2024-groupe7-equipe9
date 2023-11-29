@@ -7,14 +7,14 @@
 
 
 
-#define MAX_TASKS 36 // Nombre maximal de tâches
+#define TACHEMAX 36 // Nombre maximal de tâches
 
 struct Task {
     int id;
-    float duration;
-    float earlyStart;
+    float duree;
+    float debut;
 };
 
-float pert(int graph[MAX_TASKS][MAX_TASKS], struct Task tasks[MAX_TASKS], int num_tasks);
+float pert(int graph[TACHEMAX][TACHEMAX], struct Task tache[TACHEMAX], int num_tasks);
 #endif
 

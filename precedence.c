@@ -2,29 +2,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-float pert(int graph[MAX_TASKS][MAX_TASKS], struct Task tasks[MAX_TASKS], int num_tasks) {
-    // Calcul des dates au plus tôt (ES) pour chaque tâche
+float pert(int graph[TACHEMAX][TACHEMAX], struct Task tache[TACHEMAX], int num_tasks) {
+    // Calcul des dates au plus tôt pour chaque tâche
     for (int i = 0; i < num_tasks; ++i) {
         float maxEarlyStart = 0;
         for (int j = 0; j < num_tasks; ++j) {
             if (graph[j][i] == 1) {
-                if (tasks[j].earlyStart + tasks[j].duration > maxEarlyStart) {
-                    maxEarlyStart = tasks[j].earlyStart + tasks[j].duration;
+                if (tache[j].debut + tache[j].duree > maxEarlyStart) {
+                    maxEarlyStart = tache[j].debut + tache[j].duree;
                 }
             }
         }
-        tasks[i].earlyStart = maxEarlyStart;
+        tache[i].debut = maxEarlyStart;
     }
 
     // Recherche de la tâche finale pour obtenir la durée minimale du projet
-    float minDuration = 0;
+    float dureeminimal = 0;
     for (int i = 0; i < num_tasks; ++i) {
-        if (tasks[i].earlyStart + tasks[i].duration > minDuration) {
-            minDuration = tasks[i].earlyStart + tasks[i].duration;
+        if (tache[i].debut + tache[i].duree > dureeminimal) {
+            dureeminimal = tache[i].debut + tache[i].duree;
         }
     }
 
-    return minDuration;
+    return dureeminimal;
 }
 
 int main() {
@@ -34,25 +34,25 @@ int main() {
         return 1;
     }
 
-    int graph[MAX_TASKS][MAX_TASKS] = {0}; // Matrice d'adjacence pour représenter le graphe
-    struct Task tasks[MAX_TASKS];
+    int graphe[TACHEMAX][TACHEMAX] = {0}; // Matrice d'adjacence pour représenter le graphe
+    struct Task tasks[TACHEMAX];
 
     int a, b;
-    float duration;
+    float Duree;
     int num_tasks = 0;
 
-    while (fscanf(file, "%d %d %f", &a, &b, &duration) == 3) {
-        graph[a - 1][b - 1] = 1;
+    while (fscanf(file, "%d %d %f", &a, &b, &Duree) == 3) {
+        graphe[a - 1][b - 1] = 1;
         tasks[num_tasks].id = b;
-        tasks[num_tasks].duration = duration;
-        tasks[num_tasks].earlyStart = 0;
+        tasks[num_tasks].duree = Duree;
+        tasks[num_tasks].debut = 0;
         num_tasks++;
     }
 
     fclose(file);
 
-    float minDuration = pert(graph, tasks, num_tasks);
-    printf("Durée minimale du projet : %.2f seconde.\n", minDuration);
+    float Dureemin = pert(graphe, tasks, num_tasks);
+    printf("Durée minimale du projet : %.2f seconde.\n", Dureemin);
 
     return 0;
 }
