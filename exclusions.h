@@ -19,5 +19,6 @@ int compareOperations(const void *a, const void *b);
 void lirecontrainte(struct ExclusionPair *exclusions, int *numExclusions);
 int calculateMinStations(struct ExclusionPair *exclusions, int numExclusions, int *stations, int *numOperationsInStation);
 void printOperationsInStations(int *stations, int numStations, int *numOperationsInStation);
+int mainExclusion();
 
 #endif //ING2_TG_2023_2024_GROUPE7_EQUIPE9_EXCLUSIONS_H

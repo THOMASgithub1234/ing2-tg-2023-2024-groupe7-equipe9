@@ -111,7 +111,7 @@ void printOperationsInStations(int *stations, int numStations, int *numOperation
 
 }
 
-/*int main() {
+int mainExclusion (){
     struct ExclusionPair exclusions[MAX_OPERATIONS * (MAX_OPERATIONS - 1) / 2];
     int numExclusions;
 
@@ -128,6 +128,5 @@ void printOperationsInStations(int *stations, int numStations, int *numOperation
     printf("Nombre minimal de stations necessaires : %d\n", numStations);
     printOperationsInStations(stations, numStations, numOperationsInStation);
 
-    return 0;
+
 }
-*/

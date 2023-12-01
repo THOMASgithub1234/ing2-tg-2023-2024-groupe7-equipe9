@@ -16,5 +16,6 @@ struct Task {
 };
 
 float pert(int graph[TACHEMAX][TACHEMAX], struct Task tache[TACHEMAX], int num_tasks);
+int mainPrecedence;
 #endif
 

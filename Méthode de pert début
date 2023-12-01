@@ -1,4 +1,4 @@
-#include <stdio.h>
+/*#include <stdio.h>
 #include <stdlib.h>
 
 // Définition des types
@@ -118,3 +118,4 @@ int main() {
 
   return 0;
 }
+*/

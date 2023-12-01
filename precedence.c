@@ -1,7 +1,7 @@
 #include "precedence.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+/*
 float pert(int graph[TACHEMAX][TACHEMAX], struct Task tache[TACHEMAX], int num_tasks) {
     // Calcul des dates au plus tôt pour chaque tâche
     for (int i = 0; i < num_tasks; ++i) {
@@ -27,7 +27,7 @@ float pert(int graph[TACHEMAX][TACHEMAX], struct Task tache[TACHEMAX], int num_t
     return dureeminimal;
 }
 
-int main() {
+int mainPrecedence() {
     FILE *file = fopen("precedences.txt", "r");
     if (file == NULL) {
         printf("Erreur lors de l'ouverture du fichier.\n");
@@ -54,5 +54,6 @@ int main() {
     float Dureemin = pert(graphe, tasks, num_tasks);
     printf("Durée minimale du projet : %.2f seconde.\n", Dureemin);
 
-    return 0;
+
 }
+ */
