@@ -1,7 +1,7 @@
 #include "precedence.h"
 #include <stdio.h>
 #include <stdlib.h>
-/*
+
 float pert(int graph[TACHEMAX][TACHEMAX], struct Task tache[TACHEMAX], int num_tasks) {
     // Calcul des dates au plus tôt pour chaque tâche
     for (int i = 0; i < num_tasks; ++i) {
@@ -56,4 +56,3 @@ int mainPrecedence() {
 
 
 }
- */
