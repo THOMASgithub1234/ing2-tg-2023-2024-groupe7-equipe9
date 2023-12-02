@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <precedence.h>
 
-// Il faut qu'on déclare nos structures ici, celle-ci sont des exemples par rapport à ce que l'on va faire 
+// Il faut qu'on déclare nos structures ici, celle-ci sont des exemples par rapport à ce que l'on va faire
 
 // Fonctions pour gérer les différentes fonctionnalités
 void lireContraintes();
@@ -62,3 +62,4 @@ void quitterProgramme() {
     printf("Merci d'avoir utilisé le programme. Au revoir!\n");
     exit(0);
 }
+
