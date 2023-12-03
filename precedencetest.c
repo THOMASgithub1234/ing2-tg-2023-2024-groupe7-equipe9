@@ -3,7 +3,6 @@
 //
 
 #include "precedencetest.h"
-#include "precedence.h"
 #include <stdio.h>
 #include <stdlib.h>
 
