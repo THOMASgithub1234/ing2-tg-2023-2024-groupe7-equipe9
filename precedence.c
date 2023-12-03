@@ -1,4 +1,4 @@
-#include "precedence.h"
+/*#include "precedence.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -56,3 +56,4 @@ int mainPrecedence() {
 
 
 }
+*/

@@ -17,12 +17,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="modification bug">
-      <change afterPath="$PROJECT_DIR$/precedencetest.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/precedencetest.h" afterDir="false" />
+    <list default="true" id="116d471e-6de3-48f7-b257-d1f417fadcaf" name="Changes" comment="implementation precedence essai">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/menu.c" beforeDir="false" afterPath="$PROJECT_DIR$/menu.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1701449142282</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implementation precedence essai">
+      <created>1701614382118</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1701614382118</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +142,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test1" />
     <MESSAGE value="regroupement fichier" />
-    <option name="LAST_COMMIT_MESSAGE" value="regroupement fichier" />
+    <MESSAGE value="implementation precedence essai" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementation precedence essai" />
   </component>
 </project>

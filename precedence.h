@@ -1,5 +1,5 @@
 
-
+/*
 #ifndef ING2_TG_2023_2024_GROUPE7_EQUIPE9_PRECEDENCE_H
 #define ING2_TG_2023_2024_GROUPE7_EQUIPE9_PRECEDENCE_H
 
@@ -17,3 +17,4 @@ float pert(int graph[TACHEMAX][TACHEMAX], struct Task tache[TACHEMAX], int num_t
 int mainPrecedence();
 #endif
 
+*/
