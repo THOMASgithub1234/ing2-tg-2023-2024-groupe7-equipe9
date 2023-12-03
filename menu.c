@@ -10,7 +10,7 @@ void repartirOperations();
 void afficherResultat();
 void quitterProgramme();
 
-int main() {
+/*int main() {
     int choix;
 
     do {
@@ -63,3 +63,4 @@ void quitterProgramme() {
     exit(0);
 }
 
+*/
